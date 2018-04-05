@@ -29,6 +29,8 @@ def sigmoid(z):
     return np.clip(res, 0.00000000000001, 0.99999999999999)
 
 def predict(X_test, mu1, mu2, shared_sigma, N1, N2):
+    for i in range(shared_sigma.shape[0]):
+        shared_sigma[i][i] += 0.00001
     sigma_inverse = inv(shared_sigma)
     w = np.dot((mu1-mu2), sigma_inverse)
     x = X_test.T
