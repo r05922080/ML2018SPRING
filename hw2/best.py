@@ -7,10 +7,6 @@ from keras.layers import Dense, Dropout, Activation
 from keras.optimizers import SGD
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from keras.layers.normalization import BatchNormalization
-import h5py
-f = h5py.File('model.h5','r+')
-del f['optimizer_weights']
-f.close()
 ATTR = ["age","workclass","fnlwgt","education","education_num","marital_status","occupation","relationship","race","sex","capital_gain","capital_loss","hours_per_week","native_country"]
 
 def readData(trainPath, testPath):
