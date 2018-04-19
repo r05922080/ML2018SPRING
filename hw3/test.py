@@ -1,26 +1,10 @@
 import keras
 import pandas as pd
 import numpy as np
-from keras.models import Sequential,load_model, Model
-from keras.layers import Conv2D, Dense, Dropout, Activation, MaxPooling2D,ZeroPadding2D,AveragePooling2D,Input,Flatten, Average, concatenate
-from keras.optimizers import SGD, Adam, Adadelta
-from keras.callbacks import EarlyStopping, ModelCheckpoint
-from keras.layers.normalization import BatchNormalization
-from keras.layers.advanced_activations import *
-from keras.preprocessing.image import ImageDataGenerator
-from keras.utils import to_categorical
-from keras import optimizers
-from keras.initializers import random_normal
+from keras.models import load_model
 import sys
 BATCHSIZE = 128;
 EPOCH = 300;
-datagen = ImageDataGenerator(
-    rotation_range=30,
-    width_shift_range=0.2,
-    height_shift_range=0.2,
-    zoom_range=[0.8, 1.2],
-    shear_range=0.2,
-    horizontal_flip=True)
 
 def readData(label, data_path):
     if (label == "train"):
